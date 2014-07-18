@@ -5,6 +5,12 @@ public abstract class AbstractTreeNode<T> {
 	public AbstractTreeNode<T> right;
 	public T data;
 	private boolean visited;
+
+	public AbstractTreeNode (){
+		visited = false;
+		left = null;
+		right = null;
+	}
 	
 	public AbstractTreeNode (T item){
 		data = item;
