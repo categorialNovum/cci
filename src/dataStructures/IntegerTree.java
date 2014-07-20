@@ -3,7 +3,10 @@ package dataStructures;
 public class IntegerTree extends AbstractTreeNode<Integer>{
 	
 	public IntegerTree() {
+<<<<<<< HEAD
         super();
+=======
+>>>>>>> FETCH_HEAD
 	}
 
 	public IntegerTree(Integer item) {

@@ -6,11 +6,18 @@ public abstract class AbstractTreeNode<T> {
 	public T data;
 	private boolean visited;
 
+<<<<<<< HEAD
 	public AbstractTreeNode(){
 		visited = false;
 		left = null;
 		right = null;
 		data = null;
+=======
+	public AbstractTreeNode (){
+		visited = false;
+		left = null;
+		right = null;
+>>>>>>> FETCH_HEAD
 	}
 	
 	public AbstractTreeNode (T item){
