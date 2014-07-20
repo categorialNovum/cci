@@ -1,10 +1,7 @@
 package drivers.chapter4;
 
 import dataStructures.IntegerTree;
-<<<<<<< HEAD
 import dataStructures.BinaryTree;
-=======
->>>>>>> FETCH_HEAD
 import java.util.LinkedList;
 import java.util.Random;
 import java.lang.Math;
