@@ -29,6 +29,8 @@ public class TreeSandbox {
 		return Math.max(leftDepth + 1, rightDepth + 1);
 	}
 	
+	//make  a random binary search tree
+	//uses size for number of nodes and modnum to constrain the size of the values
 	public static IntegerTree constructRandomTree(int size, int modnum){
 		Random random = new Random(System.currentTimeMillis());
 		int nextNum = Math.abs(random.nextInt() % modnum);
@@ -40,6 +42,8 @@ public class TreeSandbox {
 		return root;
 	}
 
+	//make a binary tree of random numbers
+	// uses size for number of nodes and modnum to constrain the size of the values
 	public static BinaryTree constructRandomBinaryTree(int size, int modnum){
 		Random random = new Random(System.currentTimeMillis());
 		int nextNum = Math.abs(random.nextInt() % modnum);
@@ -51,6 +55,7 @@ public class TreeSandbox {
 		return root;
 	}
 
+	//create a binary search tree from an array of numbers
 	public static IntegerTree construstFromArray(int[] numbers){
 		IntegerTree root = new IntegerTree(numbers[0]);
 		for (int i=1; i<numbers.length; i++){
@@ -77,14 +82,24 @@ public class TreeSandbox {
 		return root;
 	}
 	
+	// is the tree passed in a binary search tree?
 	public static boolean isBST(AbstractTreeNode<Integer> root){
-		
-		return false;
+		if(root == null){
+			return true;
+		}
+		if (root.left != null && root.left.data > root.data){
+			return false;
+		}
+		if (root.right != null && root.right.data < root.data){
+			return false;
+		}
+		return isBST(root.left) && isBST(root.right);
 	}
 
 	public static void main(String[] args) {
-		IntegerTree root = constructRandomTree(10, 1069);
+		IntegerTree root = constructRandomTree(150000, 10069);
 		printTree(root,0);
+		System.out.println("Max Depth : " + maxDepth(root));
+		System.out.println("Is BST ? : " + isBST(root));
 	}
-
 }
