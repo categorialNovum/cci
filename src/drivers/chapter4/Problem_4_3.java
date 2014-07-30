@@ -26,7 +26,7 @@ public class Problem_4_3 {
 			curNum++;
 		}
 		
-		IntegerTree orderedtree = TreeSandbox.construstFromArray(data);
+		IntegerTree orderedtree = TreeSandbox.constructFromArray(data);
 		IntegerTree mintree = TreeSandbox.constructMinDepthFromArray(data);
 
 		System.out.println("Ordered");

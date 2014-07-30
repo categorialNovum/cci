@@ -20,6 +20,31 @@ public class TreeSandbox {
 		printTree(node.right, level);
 	}
 	
+	//does a tree contain a certain number?
+	public static boolean contains(AbstractTreeNode<Integer> node, int numToFind){
+		if (node == null){
+			return false;
+		}
+		if (node.data == numToFind){
+			return true;
+		}
+		return contains(node.left, numToFind) || contains(node.right, numToFind);
+	}
+	
+	public static AbstractTreeNode<Integer> findCommonAncestor(AbstractTreeNode<Integer> root, int a, int b){
+		boolean leftA = contains(root.left, a);
+		boolean leftB = contains(root.left, b);
+		
+		// A and B are on different sides of the current node, we have found the first common ancestor
+		if (leftA != leftB){
+			return root;
+		}else if (leftA && leftB){
+			return findCommonAncestor(root.left, a, b);
+		}else{
+			return findCommonAncestor(root.right, a, b);
+		}
+	}
+	
 	public static int maxDepth(AbstractTreeNode node){
 		if (node == null){
 			return 0;
@@ -56,8 +81,16 @@ public class TreeSandbox {
 	}
 
 	//create a binary search tree from an array of numbers
-	public static IntegerTree construstFromArray(int[] numbers){
+	public static IntegerTree constructFromArray(int[] numbers){
 		IntegerTree root = new IntegerTree(numbers[0]);
+		for (int i=1; i<numbers.length; i++){
+			root.insert(numbers[i]);
+		}
+		return root;
+	}
+
+	public static BinaryTree constructBinaryFromArray(int[] numbers){
+		BinaryTree root = new BinaryTree(numbers[0]);
 		for (int i=1; i<numbers.length; i++){
 			root.insert(numbers[i]);
 		}
